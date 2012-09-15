@@ -16,6 +16,10 @@
  -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
  --
 
+--
+-- Tabellenstruktur für Tabelle `bengine_ProxyUserLog`
+--
+
 CREATE TABLE IF NOT EXISTS `bengine_ProxyUserLog` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `UserID` int(11) NOT NULL,
