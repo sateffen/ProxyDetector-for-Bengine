@@ -35,8 +35,8 @@ class Plugin_ProxyDetector extends Recipe_PluginAbstract
 	/**
 	 * Checks wheather the user uses a proxy and logs this
 	 *
-	 * @param Login								The Login util
-	 * @param string							Session URL
+	 * @param Login	    The Login util
+	 * @param string    Session URL
 	 *
 	 * @return Plugin_TORUserDetector
 	 */
@@ -70,15 +70,15 @@ class Plugin_ProxyDetector extends Recipe_PluginAbstract
 		}
 		if ( !empty( $ProxyIP ) && $ProxyIP !== NULL ) {		
 			Core::getQuery()->insertInto( 'ProxyUserLog' , array( 
-																'ID' => '' , 
-																'UserID' => $Login->getUserId() , 
-																'ProxyIP' => $RealIP , 
-																'RealIP' => $ProxyIP ,
-																'Timestamp' => time() 
-															) );
-		}
-		return $this;
-	}
+                                                                    'ID' => '' , 
+                                                                    'UserID' => $Login->getUserId() , 
+                                                                    'ProxyIP' => $RealIP , 
+                                                                    'RealIP' => $ProxyIP ,
+                                                                    'Timestamp' => time() 
+                                                                ) );
+        }
+        return $this;
+    }
 }
 
 Hook::addHook( 'StartSession' , new Plugin_ProxyDetector() );
