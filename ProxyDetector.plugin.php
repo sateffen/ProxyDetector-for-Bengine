@@ -68,14 +68,10 @@ class Plugin_ProxyDetector extends Recipe_PluginAbstract
 				break;
 			}
 		}
-		if ( !empty( $ProxyIP ) && $ProxyIP !== NULL ) {		
-			Core::getQuery()->insertInto( 'ProxyUserLog' , array( 
-                                                                    'ID' => '' , 
-                                                                    'UserID' => $Login->getUserId() , 
-                                                                    'ProxyIP' => $RealIP , 
-                                                                    'RealIP' => $ProxyIP ,
-                                                                    'Timestamp' => time() 
-                                                                ) );
+		if ( !empty( $ProxyIP ) && $ProxyIP !== NULL ) {
+		Core::getDatabase()->query("INSERT INTO`bengine_ProxyUserLog` (`ID`,`UserID`,`ProxyIP`,`RealIP`,`Timestamp`)
+										VALUES (NULL,?,?,?,?);",
+										array($Login->getUserId(), $RealIP, $ProxyIP, time()));
         }
         return $this;
     }
