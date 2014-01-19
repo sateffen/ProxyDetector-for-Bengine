@@ -1,7 +1,7 @@
 ProxyDetector-for-Bengine
 =========================
 
-This is a Plugin for the Bengine, which detects wheather a logging in person uses a proxy and notes this
+This is a plugin for the Bengine, which detects whether a person logging in uses a proxy and notes this
 
 
 
